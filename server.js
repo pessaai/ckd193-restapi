@@ -33,13 +33,15 @@ store.defineType('recipe', {
     type: {type: String},
     base: {type: String},
     recipe: {type: String},
+
+    posts: { link: 'comment', inverse: 'author', isArray: true }
 });
 
 store.defineType('comment', {
-    date: {type: Date},
     user: {type: String},
     text: {type: String},
-    recipe: {type: Number, min: 0, max: 100},
+    
+    author: { link: 'recipe', inverse: 'posts' }
 });
 
 
